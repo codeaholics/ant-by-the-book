@@ -1,4 +1,8 @@
 <project name="ant-by-the-book">
+    <import>
+        <fileset dir="${basedir}" includes="*db.xml" />
+    </import>
+        
     <target name="-compile-tasks">
         <mkdir dir="build"/>
         <javac srcdir="src" destdir="build" debug="on" includeantruntime="yes"/>
@@ -11,7 +15,5 @@
         </taskdef>
     </target>
 
-    <target name="check-databases" depends="-define-tasks">
-        <check-databases/>
-    </target>
+    <extension-point name="check-databases"/>
 </project>

@@ -1,0 +1,5 @@
+<project>
+    <target name="check-odb" extensionOf="check-databases" depends="-define-tasks">
+        <check-database name="odb" user="odb-user" password="odb-password"/>
+    </target>
+</project>
