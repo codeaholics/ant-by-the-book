@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <antlib>
+    <typedef name="database" classname="org.codeaholics.antbtb.Database"/>
     <taskdef name="check-databases" classname="org.codeaholics.antbtb.CheckDatabases"/>
     <taskdef name="check-database" classname="org.codeaholics.antbtb.CheckDatabase"/>
 </antlib>

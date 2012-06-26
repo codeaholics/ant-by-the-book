@@ -1,19 +1,20 @@
 <project name="ant-by-the-book">
-    <import>
-        <fileset dir="${basedir}" includes="*db.xml" />
-    </import>
-        
-    <target name="-compile-tasks">
-        <mkdir dir="build"/>
-        <javac srcdir="src" destdir="build" debug="on" includeantruntime="yes"/>
-    </target>
-        
-    <target name="-define-tasks" depends="-compile-tasks">
-        <taskdef resource="org/codeaholics/antbtb/antlib.xml"> 
-            <classpath location="src"/>
-            <classpath location="build"/>
-        </taskdef>
-    </target>
+    <mkdir dir="build"/>
+    <javac srcdir="src" destdir="build" debug="on" includeantruntime="yes"/>
 
-    <extension-point name="check-databases"/>
+    <taskdef resource="org/codeaholics/antbtb/antlib.xml"> 
+        <classpath location="src"/>
+        <classpath location="build"/>
+    </taskdef>
+
+    <database id="adb" user="adb-user" password="adb-password"/>
+    <database id="odb" user="adb-user" password="odb-password"/>
+
+    <target name="check-databases">
+        <check-databases>
+            <database refid="adb"/>
+            <database refid="odb"/>
+            <database id="never-seen-before" user="new-user" password="new-password"/>
+        </check-databases>
+    </target>
 </project>

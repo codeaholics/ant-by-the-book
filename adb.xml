@@ -1,5 +1,0 @@
-<project>
-    <target name="check-adb" extensionOf="check-databases" depends="-define-tasks">
-        <check-database name="adb" user="adb-user" password="adb-password"/>
-    </target>
-</project>
