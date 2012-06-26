@@ -1,0 +1,17 @@
+<project name="ant-by-the-book">
+    <target name="-compile-tasks">
+        <mkdir dir="build"/>
+        <javac srcdir="src" destdir="build" debug="on" includeantruntime="yes"/>
+    </target>
+        
+    <target name="-define-tasks" depends="-compile-tasks">
+        <taskdef resource="org/codeaholics/antbtb/antlib.xml"> 
+            <classpath location="src"/>
+            <classpath location="build"/>
+        </taskdef>
+    </target>
+
+    <target name="check-databases" depends="-define-tasks">
+        <check-databases/>
+    </target>
+</project>
