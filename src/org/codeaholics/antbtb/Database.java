@@ -1,5 +1,6 @@
 package org.codeaholics.antbtb;
 
+import org.apache.tools.ant.Project;
 import org.apache.tools.ant.types.DataType;
 
 public class Database extends DataType {
@@ -29,5 +30,9 @@ public class Database extends DataType {
 
     public void setPassword(final String password) {
         this.password = password;
+    }
+
+    public void isAlive(final Project project) {
+        project.log(String.format("Checking database %s as %s:%s", id, user, password), Project.MSG_INFO);
     }
 }

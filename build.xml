@@ -11,10 +11,6 @@
     <database id="odb" user="adb-user" password="odb-password"/>
 
     <target name="check-databases">
-        <check-databases>
-            <database refid="adb"/>
-            <database refid="odb"/>
-            <database id="never-seen-before" user="new-user" password="new-password"/>
-        </check-databases>
+        <check-databases/>
     </target>
 </project>
